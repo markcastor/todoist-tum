@@ -4,21 +4,19 @@ import 'firebase/compat/firestore';
 
 
 const firebaseConfig = firebase.initializeApp({
-    apiKey: "AIzaSyDPy-gThDBkB5b-s2aTAxEO-nPlhrAmvnY",
 
-    authDomain: "tasky-taskmanagement.firebaseapp.com",
+    apiKey: "AIzaSyCpqGHWROfT1o6rorWOYtLRTwlNSE5xiNw",
+
+    authDomain: "tasky-taskmanagement-23a9a.firebaseapp.com",
+
+    projectId: "tasky-taskmanagement-23a9a",
+
+    storageBucket: "tasky-taskmanagement-23a9a.appspot.com",
+
+    messagingSenderId: "995087962442",
+
+    appId: "1:995087962442:web:a461e6a2438ef9ab1a31b3"
   
-    databaseURL: "https://tasky-taskmanagement-default-rtdb.firebaseio.com",
-  
-    projectId: "tasky-taskmanagement",
-  
-    storageBucket: "tasky-taskmanagement.appspot.com",
-  
-    messagingSenderId: "362246032720",
-  
-    appId: "1:362246032720:web:53917bb8770f5181913055",
-  
-    measurementId: "G-VYTER4VJE3"
   
   
     

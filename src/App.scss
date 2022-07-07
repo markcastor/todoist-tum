@@ -265,30 +265,34 @@ header {
   }
 
   li {
+    padding-left: 10px;
+    padding-right: 15px;
+
     &:hover .sidebar__project-delete {
-      display: -webkit-box;
+      /* display: -webkit-box;
       display: -ms-flexbox;
-      display: flex;
+      display: flex; */
+      display: block;
     }
   }
 
   &__project {
-    
+    padding: 5px 0;
     cursor: pointer;
     
     div:nth-child(1) {
       padding: 5px 0;
       padding-left: 10px;
       padding-right: 15px;
-      width: 100%;
+      //width: 100%;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center;
-    }
-
+    } 
+ 
     &-delete {
       margin-left: auto;
       display: none;
@@ -374,6 +378,7 @@ header {
 
   &__generic {
     li {
+      padding: 10px 0 10px 10px;
       list-style-type: none;
       color: #333;
       display: -webkit-box;
@@ -448,8 +453,9 @@ header {
   }
 }
 
-/* Main Content
-  ============================================ */
+/* Main Content*/
+
+
 .content {
   display: grid;
   -webkit-box-align: center;
@@ -461,7 +467,8 @@ header {
 }
 
 /* Tasks
-  ============================================ */
+ ____________________ */
+
 .tasks {
   width: 656px;
   background-color: white;
@@ -529,7 +536,7 @@ header {
 }
 
 /* Add Task
-  ============================================ */
+  ___________________ */
 .add-task {
   &__overlay {
     background: rgba(102,102,102,0.5);
@@ -644,7 +651,7 @@ header {
 
   &__list li {
     @include task-item();
-    padding: 0;
+    //padding: 0;
 
     div:nth-child(1) {
       padding: 10px;
@@ -654,7 +661,7 @@ header {
       display: flex;
       -webkit-box-align: center;
           -ms-flex-align: center;
-              align-items: center;
+              align-items: center; 
 
       span:first-of-type {
         margin-right: 10px;
@@ -663,7 +670,7 @@ header {
           fill: grey;
         }
       }
-    }
+   }
   }
 }
 
@@ -680,7 +687,7 @@ header {
 
   &__list li {
     @include task-item();
-    padding: 0;
+    //padding: 0;
 
     div:nth-child(1) {
       width: 100%;

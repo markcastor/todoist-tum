@@ -1,50 +1,53 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTasks } from '../hooks';
 import { Checkbox } from './Checkbox';
+import { AddTask } from './AddTask';
 import { collatedTasks } from '../constants';
-import { getTitle, getCollatedTittle, collatedTasksExit } from '../helpers';
+import { getTitle, getCollatedTitle, collatedTasksExist } from '../helpers';
 import { useSelectedProjectValue, useProjectsValue } from '../context';
 
 export const Tasks = ()  =>{
-    const {selectedProject } = useSelectedProjectValue();
-    const {projects } = useProjectsValue();
-    const {tasks } = useTasks(selectedProject);
-    
+  const {selectedProject } = useSelectedProjectValue();
+  const {projects } = useProjectsValue();
+  const {tasks } = useTasks(selectedProject);
+  
 
-    let projectName ='';
+  let projectName ='';
 
-    if (projects && selectedProject && !collatedTasksExit(selectedProject)){
-      projectName = getTitle(projects, selectedProject).name;
-      console.log('projectName 1:', projectName);
+  if (collatedTasksExist(selectedProject) && selectedProject) {
+    projectName = getCollatedTitle(collatedTasks, selectedProject).name;
+  }
+
+  if (
+    projects.length > 0 &&
+    selectedProject &&
+    !collatedTasksExist(selectedProject)
+  ) {
+    projectName = getTitle(projects, selectedProject).name;
+  }
+
+  useEffect(() => {
+    document.title = `${projectName}: Todoist`;
+
+  });
+
+  
 
 
-    }
-    if (collatedTasksExit(selectedProject) && selectedProject){
-      projectName = getCollatedTittle(collatedTasks,selectedProject).name;
-      console.log('projectName 2:', projectName);
-
-    }
-
-    useEffect(() => {
-      document.title = `&{projectName}: Todoist`;
-
-    });
-
-
-    return (
-        <div className="tasks" data-testid="tasks">
-          <h2 data-testid="project-name">{projectName}</h2>
-    
-          <ul className="tasks__list">
-            {tasks.map((task) => (
-              <li key={`${task.id}`}>
-                <Checkbox id={task.id} taskDesc={task.task} />
-                <span>{task.task}</span>
-              </li>
-            ))}
-          </ul>
-    
-          {/* <AddTask /> */}
-        </div>
-      );
+  return (
+      <div className="tasks" data-testid="tasks">
+        <h2 data-testid="project-name">{projectName}</h2>
+  
+        <ul className="tasks__list">
+          {tasks.map((task) => (
+            <li key={`${task.id}`}>
+              <Checkbox id={task.id} taskDesc={task.task} />
+              <span>{task.task}</span>
+            </li>
+          ))}
+        </ul>
+  
+        <AddTask /> 
+      </div>
+  );
 };
