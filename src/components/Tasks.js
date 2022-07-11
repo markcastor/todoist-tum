@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTasks } from '../hooks';
 import { Checkbox } from './Checkbox';
+//import { focus } from './focus';
 import { AddTask } from './AddTask';
 import { collatedTasks } from '../constants';
 import { getTitle, getCollatedTitle, collatedTasksExist } from '../helpers';
@@ -10,7 +11,8 @@ export const Tasks = ()  =>{
   const {selectedProject } = useSelectedProjectValue();
   const {projects } = useProjectsValue();
   const {tasks } = useTasks(selectedProject);
-  
+
+
 
   let projectName ='';
 
@@ -40,14 +42,18 @@ export const Tasks = ()  =>{
   
         <ul className="tasks__list">
           {tasks.map((task) => (
-            <li key={`${task.id}`}>
+           
+            <li   
+            key={`${task.id}`}>
               <Checkbox id={task.id} taskDesc={task.task} />
               <span>{task.task}</span>
             </li>
+            
+           
           ))}
         </ul>
   
-        <AddTask /> 
+        <AddTask/> 
       </div>
   );
 };

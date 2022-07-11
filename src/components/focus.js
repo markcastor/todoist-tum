@@ -1,17 +1,14 @@
-import React,{useState} from "react";
-import { FaRegListAlt, FaRegCalendarAlt } from "react-icons/fa";
-import moment from "moment";
-import { firebase } from "../firebase";
+import React, {useState} from "react";
 import { ProjectOverlay } from './ProjectOverlay';
 import { TaskDate } from './TaskDate';
 import { useSelectedProjectValue } from "../context";
+import { AddTask } from "./AddTask";
 
-export const AddTask = ({
-    showAddTaskMain = true,
+
+export const focus = ({
     showShouldMain = false,
-    showQuickAddTask,
-    setShowQuickAddTask,
-
+    showfocusQuickAddTask,
+    setShowfocusQuickAddTask, 
 }) => {
     const[task, setTask] = useState('');
     const[taskDate, setTaskDate] = useState('');
@@ -19,7 +16,6 @@ export const AddTask = ({
     const[showMain, setShowMain] = useState(showShouldMain);
     const[showProjectOverlay, setShowProjectOverlay] = useState(false);
     const[showTaskDate, setShowTaskDate] = useState(false);
-
     const{ selectedProject } = useSelectedProjectValue();
 
     const addTask = () => {
@@ -61,45 +57,26 @@ export const AddTask = ({
         );
     };
 
-
     return (
-        <div 
-            className={showQuickAddTask ? 'add-task add-task__overlay': 'add-task'}
-            data-testid="add-task-comp"
-        >
-            {showAddTaskMain && (
-                <div
-                    className="add-task__shallow"
-                    data-testid="show-main-action"
-                    onClick ={() => setShowMain(!showMain)}
-                    onKeyDown ={() => setShowMain(!showMain)}
-                    tabIndex={0}
-                    role="button"
-
-                >
-                    <span className="add-task__plus">+</span>
-                    <span className="add-task__text">Add Task</span>
-                </div>
-            )}
-
-            {(showMain || showQuickAddTask) && (
+        <div>
+                {(showMain || showfocusQuickAddTask) && (
                     <div className="add-task__main" data-testid="add-task-main">
-                    {showQuickAddTask && (
+                    {showfocusQuickAddTask && (
                         <>
-                        <div data-testid="quick-add-task">
-                            <h2 className="header">Quick Add Task</h2>
+                        <div data-testid="quick-add-ta">
+                            <h2 className="heade">Focus Quick Add Task</h2>
                             <span
                             className="add-task__cancel-x"
                             data-testid="add-task-quick-cancel"
                             onClick={() => {
                                 setShowMain(false);
                                 setShowProjectOverlay(false);
-                                setShowQuickAddTask(false);
+                                setShowfocusQuickAddTask(false);
                             }}
                             onKeyDown={() => {
                                 setShowMain(false);
                                 setShowProjectOverlay(false);
-                                setShowQuickAddTask(false);
+                                setShowfocusQuickAddTask(false);
                             }}
                             tabIndex={0}
                             role="button"
@@ -136,14 +113,14 @@ export const AddTask = ({
                         className="add-task__submit"
                         data-testid="add-task"
                         onClick={() => 
-                            showQuickAddTask 
-                                ?  addTask() && setShowQuickAddTask(false)   
+                            showfocusQuickAddTask 
+                                ?  addTask() && setShowfocusQuickAddTask(false)   
                                 : addTask()
                             }
                     >
                         Add Task
                     </button>
-                    {!showQuickAddTask && (
+                    {!showfocusQuickAddTask && (
                         <span 
                             className="add-task__cancel"
                             data-testid="add-task-main-cancel"
@@ -183,6 +160,10 @@ export const AddTask = ({
                     </span>
                 </div>
             ) }
+
+            
         </div>
     );
-};
+}; 
+
+

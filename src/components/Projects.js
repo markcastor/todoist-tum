@@ -31,9 +31,9 @@ export const Projects = ({ activeValue = null }) => {
           setSelectedProject(project.projectId);
         }}
       >
-        <IndividualProject project={project} /> 
+        {/* <IndividualProject project={project} />  */}
         
-       {/*  <div
+        <div
           role="button"
           data-testid="project-action"
           tabIndex={0}
@@ -50,7 +50,7 @@ export const Projects = ({ activeValue = null }) => {
           }}
         >
          <IndividualProject project={project} />   
-        </div> */}
+        </div> 
         
       </li>
     ))

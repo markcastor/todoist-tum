@@ -55,7 +55,9 @@ export const AddProject = ({shouldShow = false}) => {
                                 data-testid="hide-project-overlay"
                                 className="add-project__cancle"
                                 onClick={() => setShow(false)}
-                                
+                                onKeyDown={() => setShow((!show))}
+                                role="button"
+                                tabIndex={0}
                             >
                                 Cancel
                             </span>
