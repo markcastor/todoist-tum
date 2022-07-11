@@ -11,7 +11,8 @@ const ProjectRoutes = () => {
             <Routes>
             <Route path="/src/components/layout/Header.js" element={<Header darkMode={darkMode} setDarkMode={setDarkMode} />} />
             <Route path="/src/components/layout/Content.js" element={<Content />} />
-             
+            create the path here then call this page in index.js
+            cause index.js is what is going to be seen uko mbele you get         
             </Routes>
         </Router>
     );
