@@ -9,6 +9,7 @@ export const Sidebar = () => {
     const{ setSelectedProject } = useSelectedProjectValue();
     const[active, setActive ] = useState('inbox')
     const[showProjects, setShowProjects ] = useState(true);
+    
 
     
     return (
@@ -112,6 +113,27 @@ export const Sidebar = () => {
             <ul className="sidebar__projects">{showProjects && <Projects />}</ul>
 
             {showProjects && <AddProject/>}
+
+            <ul className="sidebar__generic">
+                <li className={active === 'dashboard' ? 'active': undefined}>
+                <div
+                    tabIndex={0}
+                    role="button"
+                    onClick={() => {
+                      setActive('Chart');
+                      ;
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        setActive('Dashboard');
+                        
+                      }
+                    }}>
+                    <span><FaRegCalendar/></span>
+                    <span>Dashboard</span>
+                    </div>
+                </li>
+            </ul>
 
         </div>
 

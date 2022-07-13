@@ -266,3 +266,32 @@ animation-duration: 1.2s;
     color: #eee;
 }
 } */
+
+
+.container{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  width: 65%;
+  background-color: #ffffff;
+  height: 80vh;
+  overflow: auto;
+  flex-direction: row;
+}
+.container div {
+  width: 400px;
+  height: 200px;
+  margin: 5px;
+  background-color: lightblue;
+}
+.task-done {
+  align-content: center;
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  height: 600px;
+  width: auto;
+  overflow: hidden;
+}

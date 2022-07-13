@@ -29,3 +29,8 @@
       color: #eee;
     }
   }
+
+  .container {
+    display: flex;
+    
+  }
