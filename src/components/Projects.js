@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { useSelectedProjectValue, useProjectsValue } from '../context';
-import { IndividualProject } from './IndividualProject';
+import { useSelectedProjectValue, useProjectsValue } from "../context";
+import { IndividualProject } from "./IndividualProject";
 
 export const Projects = ({ activeValue = null }) => {
   const [active, setActive] = useState(activeValue);
   const { setSelectedProject } = useSelectedProjectValue();
   const { projects } = useProjectsValue();
-  
-  return ( 
+
+  return (
     projects &&
     projects.map((project) => (
       <li
@@ -18,13 +18,12 @@ export const Projects = ({ activeValue = null }) => {
         aria-label={`Select ${project.name} as the task project`}
         className={
           active === project.projectId
-            ? 'active sidebar__project'
-            : 'sidebar__project'
+            ? "active sidebar__project"
+            : "sidebar__project"
         }
         onKeyDown={() => {
-            setActive(project.projectId);
-            setSelectedProject(project.projectId);
-          
+          setActive(project.projectId);
+          setSelectedProject(project.projectId);
         }}
         onClick={() => {
           setActive(project.projectId);
@@ -32,7 +31,7 @@ export const Projects = ({ activeValue = null }) => {
         }}
       >
         {/* <IndividualProject project={project} />  */}
-        
+
         <div
           role="button"
           data-testid="project-action"
@@ -43,18 +42,15 @@ export const Projects = ({ activeValue = null }) => {
             setSelectedProject(project.projectId);
           }}
           onKeyDown={(e) => {
-            if (e.key === 'Enter') {
+            if (e.key === "Enter") {
               setActive(project.projectId);
               setSelectedProject(project.projectId);
             }
           }}
         >
-         <IndividualProject project={project} />   
-        </div> 
-        
+          <IndividualProject project={project} />
+        </div>
       </li>
     ))
   );
 };
-
-
