@@ -10,7 +10,7 @@ import { Projects } from "../Projects";
 import { useSelectedProjectValue } from "../../context";
 import { AddProject } from "../AddProject";
 
-export const Sidebar = () => {
+export const Sidebar = ({ setCurrentView }) => {
   const { setSelectedProject } = useSelectedProjectValue();
   const [active, setActive] = useState("inbox");
   const [showProjects, setShowProjects] = useState(true);
@@ -26,6 +26,7 @@ export const Sidebar = () => {
             onClick={() => {
               setActive("inbox");
               setSelectedProject("INBOX");
+              setCurrentView("Tasks");
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
@@ -52,6 +53,7 @@ export const Sidebar = () => {
             onClick={() => {
               setActive("today");
               setSelectedProject("TODAY");
+              setCurrentView("Tasks");
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
@@ -76,6 +78,7 @@ export const Sidebar = () => {
             onClick={() => {
               setActive("next_7");
               setSelectedProject("NEXT_7");
+              setCurrentView("Tasks");
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
@@ -97,11 +100,13 @@ export const Sidebar = () => {
             tabIndex={0}
             role="button"
             onClick={() => {
-              setActive("Chart");
+              setActive("Dashboard");
+              setCurrentView("Dashboard");
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 setActive("Dashboard");
+                setCurrentView("Dashboard");
               }
             }}
           >
@@ -135,4 +140,3 @@ export const Sidebar = () => {
     </div>
   );
 };
- 

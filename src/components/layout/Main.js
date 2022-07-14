@@ -3,6 +3,7 @@ import { Header } from "./Header";
 import { Content } from "./Content";
 
 const Main = () => {
+  //   const [currentView, setCurrentView] = useState("Tasks");
   const [darkMode, setDarkMode] = useState(false);
 
   return (
