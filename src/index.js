@@ -10,7 +10,7 @@ import Login from "./components/login";
 //import Routes from './Routes';
 
 
- render(<Routes />, document.getElementById('root'));
+ render(<App />, document.getElementById('root'));
 // ReactDOM.render(
    
 //     <BrowserRouter>
