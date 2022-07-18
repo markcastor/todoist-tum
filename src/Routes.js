@@ -6,19 +6,14 @@ import { ProjectsProvider, SelectedProjectProvider } from './context';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/login";
 
-const Routes = () => {
+export  const Route = () => {
     return(
-        <Route exact path="/login">
-            <Login />
-        </Route>
-        // <Router>
-        //     <Routes>
-        //     <Route path="/src/components/layout/Header.js" element={<Header darkMode={darkMode} setDarkMode={setDarkMode} />} />
-        //     <Route path="/src/components/layout/Content.js" element={<Content />} />
-        //     create the path here then call this page in index.js
-        //     cause index.js is what is going to be seen uko mbele you get         
-        //     </Routes>
-        // </Router>
+        
+        <Routes>
+        <Route exact path='/login' element={< Login />}></Route>
+        <Route exact path='/App' element={< App />}></Route>
+        
+    </Routes>
     );
 };
-export default Routes;
+// export default Route;
